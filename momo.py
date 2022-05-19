@@ -1,11 +1,19 @@
-from commands import check_command
-from lettering import default_welcome
+from commands import check_command, exit_command
+from command_manager import execute
+from lettering import default_welcome, default_command_line
 
 import sys
 
+def default_command_handler():
+    current_command = default_command_line()
+    if current_command == "exit": return exit_command()
+
+    execute(current_command)
+    default_command_handler()
+
 def default_execution():
     default_welcome()
-    input("\n \nComprobando configuracion...")
+    default_command_handler()
 
 def command_execution(args_params):
     args_list = []

@@ -1,3 +1,5 @@
+import time
+from uftools import clear
 
 commands = [
     ['menu', 'm'],
@@ -30,3 +32,10 @@ def check_command(command):
                 break
 
     return command_basic_response(result, command)
+
+def exit_command():
+    time.sleep(0.1)
+    clear()
+    print('bye bye!')
+    time.sleep(0.3)
+    clear()
