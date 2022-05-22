@@ -1,6 +1,8 @@
-from commands import check_command, exit_command
-from command_manager import execute
+from repBrain import firstRun, reptilian_init
+from primmaryCommands import check_command, exit_command
+from commandLineManager import execute
 from lettering import default_welcome, default_command_line
+from uftools import clear
 
 import sys
 
@@ -12,6 +14,7 @@ def default_command_handler():
     default_command_handler()
 
 def default_execution():
+    clear()
     default_welcome()
     default_command_handler()
 
@@ -33,7 +36,16 @@ def command_execution(args_params):
 
     print(main_command) 
 
+
+def first_execution():
+    reptilian_init()
+    
+    return default_execution()
+
+
 def run():
+    if firstRun(): return first_execution()
+
     argumentos = sys.argv
     largo = len(argumentos)
 
