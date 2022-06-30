@@ -10,7 +10,7 @@ Then just:
 ```bash
 momo
 ```
-First time will ask you some things, all locally storaged on the created /data folder. After that, this command will get you to the main interface (Work in progress)
+First time will ask you some things, all locally storaged at the created /user_profile folder. After that, this command will get you to the main interface (Work in progress)
 
 ## Usage
 

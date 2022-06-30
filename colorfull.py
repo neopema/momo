@@ -17,5 +17,5 @@ def print_color(s, color=Fore.WHITE, brightness=Style.NORMAL, **kwargs):
 
 def input_momo(s, color=Fore.WHITE, brightness=Style.NORMAL, **kwargs):
     """Wrap en input() para color y brillo"""
-    temp = input(f"{brightness}{BACKS[5]}{FORES[7]}{s}{BRIGHTNESS[2]}{BACKS[0]}{FORES[7]}", **kwargs)
+    temp = input(f"{brightness}{BACKS[5]}{FORES[7]}{s}{BRIGHTNESS[2]}{BACKS[0]}{FORES[7]} ", **kwargs)
     return temp

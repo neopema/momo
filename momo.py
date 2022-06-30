@@ -13,20 +13,26 @@ def default_command_handler():
     execute(current_command)
     default_command_handler()
 
+
 def default_execution():
     clear()
     default_welcome()
     default_command_handler()
 
+
 def command_execution(args_params):
     args_list = []
+    main_command = ""
 
     for i, arg in enumerate(args_params):
         if i == 0:
-            continue     
+            continue
+        if i == 1:
+            main_command = arg  
+            continue
+           
         args_list.append(arg)
 
-    main_command = args_list[0]
     valid_main_command = check_command(main_command)
 
     if valid_main_command[1] == False:
@@ -34,7 +40,11 @@ def command_execution(args_params):
 
         return
 
-    print(main_command) 
+    print(f"{main_command} ejecutado")
+    print(f"arguments: {args_list}")
+
+    default_welcome()
+    default_command_handler()
 
 
 def first_execution():
@@ -44,14 +54,19 @@ def first_execution():
 
 
 def run():
+    #first run
     if firstRun(): return first_execution()
 
+    #reading arguments
     argumentos = sys.argv
     largo = len(argumentos)
 
+    #default start
     if largo < 2 : return default_execution()
     
-    command_execution(argumentos)   
+    #arguments start
+    command_execution(argumentos)
+
 
 if __name__ == '__main__':
     run()

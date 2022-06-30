@@ -31,7 +31,7 @@ def default_welcome():
 
 
 def default_command_line():
-    return input_momo("momo~ > ", color=FORES[7], brightness=BRIGHTNESS[1])
+    return input_momo("momo~ >", color=FORES[7], brightness=BRIGHTNESS[1])
 
 
 def first_welcome():

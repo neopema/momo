@@ -15,8 +15,8 @@ def firstRun():
 def reptilian_init():
     first_welcome()
 
-    name = input('Como quiere que te llame?: ')
-    birthday = input('Cumpleanos (XD) en formato DD/MM: ')
+    name = input('Como quieres que te llame?: ')
+    birthday = input('Cumpleaños (XD) en formato DD/MM: ')
     person = input('La persona que mas te importa (ademas de ti mismo): ')
 
     # proximos: una frase, algo que te guste mucho

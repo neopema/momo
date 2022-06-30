@@ -15,10 +15,9 @@ command_basic_responses = [
 
 def command_basic_response(result, command):
     result_res = [ False, True ]
-    text_res = "El comando '" + command + command_basic_responses[result]
 
     return [
-        text_res,
+        "El comando '" + command + command_basic_responses[result],
         result_res[result]
     ]
 
