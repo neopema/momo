@@ -1,10 +1,12 @@
+from ast import arg
+import sys
+
+from uftools import clear
+from momoCli import execute
 from repBrain import firstRun, reptilian_init
 from primmaryCommands import check_command, exit_command
-from commandLineManager import execute
 from lettering import default_welcome, default_command_line
-from uftools import clear
 
-import sys
 
 def default_command_handler():
     current_command = default_command_line()
@@ -17,10 +19,11 @@ def default_command_handler():
 def default_execution():
     clear()
     default_welcome()
-    default_command_handler()
+    #default_command_handler()
 
 
 def command_execution(args_params):
+    #verificamos los argumentos
     args_list = []
     main_command = ""
 
@@ -30,16 +33,18 @@ def command_execution(args_params):
         if i == 1:
             main_command = arg  
             continue
-           
+
         args_list.append(arg)
 
     valid_main_command = check_command(main_command)
 
+    #argumentos invalidos
     if valid_main_command[1] == False:
         print(valid_main_command[0])
 
         return
 
+    #argumentos validos
     print(f"{main_command} ejecutado")
     print(f"arguments: {args_list}")
 
@@ -57,15 +62,12 @@ def run():
     #first run
     if firstRun(): return first_execution()
 
-    #reading arguments
-    argumentos = sys.argv
-    largo = len(argumentos)
-
-    #default start
-    if largo < 2 : return default_execution()
-    
     #arguments start
-    command_execution(argumentos)
+    arguments = sys.argv
+    if len(arguments) > 2 : return command_execution(arguments)
+    
+    #default start
+    default_execution()
 
 
 if __name__ == '__main__':
